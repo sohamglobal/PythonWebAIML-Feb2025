@@ -1,0 +1,124 @@
+*********** JOINS **************
+
+create table cars
+(
+carid varchar(5) primary key,
+modelnm varchar(50),
+company varchar(20),
+price float
+);
+
+insert into cars values('ms131','Swift','Maruti Suzuki',591000.00);
+insert into cars values('ms132','Grand Vitara','Maruti Suzuki',1035000.00);
+insert into cars values('ms133','Brezza','Maruti Suzuki',799000.00);
+insert into cars values('ms134','Baleno','Maruti Suzuki',642000.00);
+insert into cars values('ms135','WagonR','Maruti Suzuki',547000.00);
+
+insert into cars values('hd141','Venue','Hyundai',753000.00);
+insert into cars values('hd142','Creta','Hyundai',1044000.00);
+insert into cars values('hd143','i20','Hyundai',707000.00);
+insert into cars values('hd144','i10','Hyundai',542000.00);
+
+insert into cars values('tt151','Nexon','Tata',769000.00);
+insert into cars values('tt152','Punch','Tata',600000.00);
+insert into cars values('tt153','Safari','Tata',1545000.00);
+
+insert into cars values('ho161','City','Honda',950000.00);
+insert into cars values('ho162','Amaze','Honda',665000.00);
+
+insert into cars values('vw171','Virtus','Volkswagen',1132000.00);
+insert into cars values('vw172','Taigun','Volkswagen',1256000.00);
+insert into cars values('vw173','Tiguan','Volkswagen',3375000.00);
+
+insert into cars values('sk181','Kushaq','Skoda',1158000.00);
+insert into cars values('sk182','Superb','Skoda',3416000.00);
+insert into cars values('sk183','Kodiaq','Skoda',3749000.00);
+
+insert into cars values('to191','Fortuner','Toyota',3258000.00);
+insert into cars values('to192','Glanza','Toyota',659000.00);
+insert into cars values('to193','Innova','Toyota',1809000.00);
+
+insert into cars values('bm201','XM','BMW',12500000.00);
+insert into cars values('bm202','X1','BMW',4145000.00);
+
+
+
+
+
+select * from cars;
+
+create table customers
+(
+custno int primary key,
+custnm varchar(30),
+city varchar(30),
+carid varchar(5),
+paymode varchar(30) default 'credit card'
+);
+
+insert into customers(custno,custnm,city,carid,paymode) values (1,'Joe Root','london','sk181','netbanking');
+insert into customers(custno,custnm,city,carid,paymode) values (2,'Boris Becker','berlin','ho162','cash');
+insert into customers(custno,custnm,city,carid) values (3,'Michael Schumacher','berlin','bm201');
+insert into customers(custno,custnm,city,carid) values (4,'Arnold Schwarzenegger','los angles','to191');
+insert into customers(custno,custnm,city,carid) values (5,'Jos Buttler','manchester','vw173');
+insert into customers(custno,custnm,city,carid,paymode) values (6,'Rebecca Ferguson','new york','bm185','netbanking');
+insert into customers(custno,custnm,city,carid,paymode) values (7,'Steffi Graf','stuttgart','vw171','debit card');
+insert into customers(custno,custnm,city,carid) values (8,'Keanu Reeves','tokyo','to191');
+insert into customers(custno,custnm,city,carid) values (9,'Sabastian Vettel','heppenheim','sk183');
+insert into customers(custno,custnm,city,carid,paymode) values (10,'Tom Cruise','chicago','bm201','cash');
+insert into customers(custno,custnm,city,carid) values (11,'Roger Federer','amsterdam','ho161');
+insert into customers(custno,custnm,city,carid) values (12,'Emily Blunt','london','vw172');
+insert into customers(custno,custnm,city,carid,paymode) values (13,'Shah Rukh Khan','new delhi','tt153','debit card');
+insert into customers(custno,custnm,city,carid,paymode) values (14,'A R Rahman','chennai','hd142','cash');
+insert into customers(custno,custnm,city,carid,paymode) values (15,'Tabu','hyderabad','vw173','debit card');
+insert into customers(custno,custnm,city,carid,paymode) values (16,'Shabana Azmi','mumbai','ss210','debit card');
+insert into customers(custno,custnm,city,carid,paymode) values (17,'Rekha','chennai','hd141','cash');
+insert into customers(custno,custnm,city,carid,paymode) values (18,'Amitabh Bachchan','allahabad','cs682','cash');
+insert into customers(custno,custnm,city,carid,paymode) values (19,'Imran Khan','lahore','to191','netbanking');
+insert into customers(custno,custnm,city,carid,paymode) values (20,'Dipika Singh','mumbai','to193','netbanking');
+insert into customers(custno,custnm,city,carid,paymode) values (21,'Alia Bhat','lucknow','hd142','cash');
+insert into customers(custno,custnm,city,carid,paymode) values (22,'Serena Williams','new york','ss210','netbanking');
+insert into customers(custno,custnm,city,carid,paymode) values (23,'Max Verstappen','berlin','rb739','cash');
+insert into customers(custno,custnm,city,carid,paymode) values (24,'Charles Leclerc','monte carlo','fr133','debit card');
+insert into customers(custno,custnm,city,carid,paymode) values (25,'Sylvester Stallone','Kolkata','ms134','cash');
+insert into customers(custno,custnm,city,carid,paymode) values (26,'Emily Blunt','Agra','ms131','netbanking');
+
+
+
+
+select * from customers;
+
+select customers.custnm,cars.modelnm,cars.company,cars.price
+from customers
+inner join
+cars on customers.carid=cars.carid order by modelnm;
+
+
+select customers.custnm,cars.modelnm,cars.company,cars.price
+from customers
+left outer join
+cars on customers.carid=cars.carid;
+
+
+select customers.custnm,cars.modelnm,cars.company,cars.price
+from customers
+right outer join
+cars on customers.carid=cars.carid;
+
+
+select customers.custnm,cars.modelnm,cars.company,cars.price
+from customers
+full outer join
+cars on customers.carid=cars.carid;
+
+
+select * from customers cross join cars;
+
+
+select c1.custnm,c2.custnm from customers c1
+inner join customers c2
+on c1.carid=c2.carid;
+
+
+
+
