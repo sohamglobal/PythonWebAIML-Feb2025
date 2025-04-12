@@ -12,12 +12,27 @@
         <hr>
 
         <a href="/about/">About us</a>
-
+<br>
         <form action="/welcome/" method="post">
             {% csrf_token %}
-            Name <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+            Name <input type="text" name="usernm" class="form-control" placeholder="Enter your name" required>
             <input type="submit" value="Submit" class="btn btn-primary" style="margin-top:10px">
             
+        </form>
+        <br>
+        <hr>
+        <form action="/square/" method="post">
+            {% csrf_token %}
+            Number <input type="number" name="num" class="form-control">
+            <input type="submit" value="Show Square" class="btn btn-success">
+
+        </form>
+        <br>
+        <hr>
+        <form action="/search/" method="post">
+            {% csrf_token %}
+            Account Number <input type="number" name="ano" class="form-control">
+            <input type="submit" value="Search" class="btn btn-info">
         </form>
 
     </div>

@@ -23,5 +23,7 @@ urlpatterns = [
     path('school/',views.homepage),
     path('about/',views.about),
     path('welcome/',views.welcome),
+    path('square/',views.showsquare),
+    path('search/',views.searchaccount),
     
 ]
