@@ -28,3 +28,9 @@ def searchaccount(request):
         dic=obj.serachaccountnumber(no)
     
     return render(request,"accountinfo.html",dic)
+
+def showreport(request):
+    obj=DataOperations()
+    data=obj.collectallemps()
+    print(data)
+    return render(request,"empreport.html",{"empdata":data})

@@ -16,3 +16,11 @@ class DataOperations:
             dic["balance"]="NA"
 
         return dic
+    
+    def collectallemps(self):
+        con=pymysql.connect(host='mysql-ethan-python-mysql.h.aivencloud.com',port=10413,user='praffull',password='AVNS_owESNvPFD5fnVDwuWUq',database='sharayudb')
+        curs=con.cursor()
+        curs.execute("select * from employees")
+        data=curs.fetchall()
+        con.close()
+        return data

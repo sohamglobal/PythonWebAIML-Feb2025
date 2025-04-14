@@ -25,5 +25,6 @@ urlpatterns = [
     path('welcome/',views.welcome),
     path('square/',views.showsquare),
     path('search/',views.searchaccount),
+    path('report/',views.showreport),
     
 ]
