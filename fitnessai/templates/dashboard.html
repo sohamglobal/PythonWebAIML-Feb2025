@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Consultant Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .banner {
+            width: 100%;
+            height: 200px;
+            background-image: url('/static/images/banner.jpg'); /* Replace with your banner image path */
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            width: 200px;
+        }
+        .nav-links a:hover {
+            background-color: #0056b3;
+        }
+        .ai-section {
+            margin-top: 30px;
+        }
+        .ai-section button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .ai-section button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner"></div>
+    <div class="container">
+        <h1>Welcome to the Fitness Consultant Dashboard</h1>
+        
+        <table>
+            <tr>
+
+         <td>
+        <div class="nav-links">
+            <a href="/addprofile/">Add New Profile</a>
+            <a href="/modify-profile">Modify Profile</a>
+            <a href="/delete-profile">Delete Profile</a>
+            <a href="/search-profile">Search Profile</a>
+            <a href="/report">Generate Report</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </td>   
+    <td>
+        <img src="" alt="">
+    </td>
+    </tr>
+    </table>
+        <div class="ai-section">
+            <h2>AI Recommendations</h2>
+            <p>Generate personalized recommendations for your clients based on their health parameters.</p>
+            <button onclick="window.location.href='/generate-recommendations'">Generate Recommendations</button>
+        </div>
+    </div>
+</body>
+</html>
