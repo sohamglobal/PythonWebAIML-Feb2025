@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edit Profile</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      min-height: 100vh;
+    }
+    .form-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      margin: auto;
+      margin-top: 60px;
+    }
+    .form-title {
+      text-align: center;
+      font-weight: bold;
+      color: #f85f73;
+      margin-bottom: 25px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2 class="form-title">Remove Profile</h2>
+    <form action="/removeprofile/" method="POST">
+        {% csrf_token %}
+      <div class="mb-3">
+        <label for="profile_id" class="form-label">Profile ID</label>
+        <input type="text" class="form-control" id="profile_id" name="profile_id" required>
+      </div>
+
+      <button type="submit" class="btn btn-danger w-100">Remove Profile</button>
+    </form>
+  </div>
+
+</body>
+</html>

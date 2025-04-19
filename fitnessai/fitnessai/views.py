@@ -8,7 +8,9 @@ def login(request):
     if request.method=="POST":
         uid=request.POST.get("userid")
         psw=request.POST.get("password")
-        if uid=="sharayu" and psw=="spider":
+        fs=FitnessServices()
+        result=fs.authenticate(uid,psw)
+        if result:
             request.session["authenticated"]=True
             request.session["userid"]=uid
             return redirect("dashboard")
@@ -38,6 +40,24 @@ def storeprofile(request):
         fs=FitnessServices()
         result=fs.addnewprofile(name,age,gender,height,weight,bmi,food,steps)
         if result:
-            return render(request,"profileadded.html")
+            return render(request,"profileadded.html",{"message":"New profile added successfully"})
         else:
             return render(request,"profileaddfailed.html")
+
+def change(request):
+    return render(request,"changeprofile.html")
+
+def edit(request):
+    if request.method=="POST":
+        pid=int(request.POST.get("profile_id"))
+        wt=int(request.POST.get("weight_kg"))
+        st=int(request.POST.get("steps_per_day"))
+        fs=FitnessServices()
+        result=fs.modifyprofile(pid,wt,st)
+        if result:
+            return render(request,"profileadded.html",{"message":"Profile Modified successfully"})
+        else:
+            return render(request,"profileaddfailed.html")
+
+def delete(request):
+    return render(request,"deleteprofile.html")

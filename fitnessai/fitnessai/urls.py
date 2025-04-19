@@ -24,5 +24,9 @@ urlpatterns = [
     path('login/',views.login),
     path('dashboard/',views.dashboard,name="dashboard"),
     path('addprofile/',views.addprofile,name="addprofile"),
-    path('storeprofile/',views.storeprofile)
+    path('storeprofile/',views.storeprofile),
+    path('changeprofile/',views.change),
+    path('editprofile/',views.edit),
+    path('deleteprofile/',views.delete),
+    
 ]

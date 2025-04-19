@@ -1,88 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitness Consultant Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .banner {
-            width: 100%;
-            height: 200px;
-            background-image: url('/static/images/banner.jpg'); /* Replace with your banner image path */
-            background-size: cover;
-            background-position: center;
-        }
-        .container {
-            padding: 20px;
-        }
-        .nav-links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            background-color: #007BFF;
-            padding: 10px 15px;
-            border-radius: 5px;
-            text-align: center;
-            display: inline-block;
-            width: 200px;
-        }
-        .nav-links a:hover {
-            background-color: #0056b3;
-        }
-        .ai-section {
-            margin-top: 30px;
-        }
-        .ai-section button {
-            background-color: #28a745;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .ai-section button:hover {
-            background-color: #218838;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fitness Consultant Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f2f6f9;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .banner {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 30px;
+    }
+
+    .dashboard-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .dashboard-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .action-card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .action-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .action-card a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .btn-custom {
+      width: 100%;
+      padding: 15px;
+      font-size: 1rem;
+      border-radius: 10px;
+      font-weight: 500;
+    }
+
+    .ai-section {
+      margin-top: 40px;
+    }
+
+    .logout-btn {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-    <div class="banner"></div>
-    <div class="container">
-        <h1>Welcome to the Fitness Consultant Dashboard</h1>
-        
-        <table>
-            <tr>
 
-         <td>
-        <div class="nav-links">
-            <a href="/addprofile/">Add New Profile</a>
-            <a href="/modify-profile">Modify Profile</a>
-            <a href="/delete-profile">Delete Profile</a>
-            <a href="/search-profile">Search Profile</a>
-            <a href="/report">Generate Report</a>
-            <a href="/logout">Logout</a>
+  
+  <div class="dashboard-container">
+    <img src="/static/fitness.jpg" alt="Banner" class="banner">
+
+    <h2 class="dashboard-title">Welcome {{user}}, Fitness Consultant!</h2>
+
+    <!-- Main Action Buttons -->
+    <div class="row g-4">
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="action-card bg-primary">
+          <a href="/addprofile/"><div class="btn btn-custom btn-light text-dark">Add New Profile</div></a>
         </div>
-    </td>   
-    <td>
-        <img src="" alt="">
-    </td>
-    </tr>
-    </table>
-        <div class="ai-section">
-            <h2>AI Recommendations</h2>
-            <p>Generate personalized recommendations for your clients based on their health parameters.</p>
-            <button onclick="window.location.href='/generate-recommendations'">Generate Recommendations</button>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="action-card bg-warning">
+          <a href="/changeprofile/"><div class="btn btn-custom btn-light text-dark">Modify Profile</div></a>
         </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="action-card bg-danger">
+          <a href="/deleteprofile/"><div class="btn btn-custom btn-light text-dark">Delete Profile</div></a>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="action-card bg-success">
+          <a href="/searchprofile/"><div class="btn btn-custom btn-light text-dark">Search Profile</div></a>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="action-card bg-info">
+          <a href="/report/"><div class="btn btn-custom btn-light text-dark">View Report</div></a>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="action-card bg-secondary">
+          <a href="/report/"><div class="btn btn-custom btn-light text-dark">Health Tips</div></a>
+        </div>
+      </div>
+
+
     </div>
+
+    <!-- AI Recommendation Section -->
+    <div class="ai-section text-center">
+      <h4 class="mt-5 mb-3 text-primary">Need a Recommendation?</h4>
+      <a href="/aifitnessadvice/" class="btn btn-outline-primary btn-lg">Generate AI-based Health Advice</a>
+    </div>
+
+    <!-- Logout -->
+    <div class="text-center logout-btn">
+      <a href="/logout/" class="btn btn-outline-danger">Logout</a>
+    </div>
+  </div>
+
 </body>
 </html>
