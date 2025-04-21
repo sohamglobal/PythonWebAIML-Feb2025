@@ -28,5 +28,9 @@ urlpatterns = [
     path('changeprofile/',views.change),
     path('editprofile/',views.edit),
     path('deleteprofile/',views.delete),
-    
+    path('logout/',views.logout),
+    path('report/',views.report),
+    path('search/',views.search),
+    path('searchprofiles/',views.searchprofiles),
+    path('tips/',views.tips),
 ]

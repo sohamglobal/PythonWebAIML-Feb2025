@@ -44,3 +44,17 @@ class FitnessServices:
         con.close()
         flag=True
         return flag
+    
+    def getallprofiles(self):
+        con=pymysql.connect(host='mysql-ethan-python-mysql.h.aivencloud.com',port=10413,user='praffull',password='AVNS_owESNvPFD5fnVDwuWUq',database='sharayudb')
+        curs=con.cursor()
+        curs.execute("select person_name,age,gender,height_cm,weight_kg,bmi,recorded_on from fitness_profile")
+        data=curs.fetchall()
+        return data
+
+    def searchprofilesondate(self,dt):
+        con=pymysql.connect(host='mysql-ethan-python-mysql.h.aivencloud.com',port=10413,user='praffull',password='AVNS_owESNvPFD5fnVDwuWUq',database='sharayudb')
+        curs=con.cursor()
+        curs.execute(f"select person_name,age,gender,height_cm,weight_kg,bmi,recorded_on from fitness_profile where recorded_on='{dt}'")
+        data=curs.fetchall()
+        return data

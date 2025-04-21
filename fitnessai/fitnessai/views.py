@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .services import FitnessServices
+from django.views.decorators.cache import never_cache
 
 def index(request):
     return render(request,"index.html")
@@ -17,6 +18,7 @@ def login(request):
         else:
             return render(request,"loginfailed.html")
 
+@never_cache
 def dashboard(request):
     if not request.session.get("authenticated"):
         return redirect("index")   
@@ -61,3 +63,26 @@ def edit(request):
 
 def delete(request):
     return render(request,"deleteprofile.html")
+
+def logout(request):
+    request.session["authenticated"]=False
+    return render(request,"logout.html")
+
+def report(request):
+    fs=FitnessServices()
+    data=fs.getallprofiles()
+    return render(request,"report.html",{"profiles":data})
+
+def search(request):
+    return render(request,"search.html")
+
+def searchprofiles(request):
+    if request.method=="POST":
+        dt=request.POST.get("date")
+        #print(dt)
+        fs=FitnessServices()
+        data=fs.searchprofilesondate(dt)
+    return render(request,"searchresult.html",{"profiles":data})
+
+def tips(request):
+    return render(request,"healthtips.html")
