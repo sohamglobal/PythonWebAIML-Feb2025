@@ -1,5 +1,3 @@
-#pip install pymysql
-#pip install cryptography
 from flask import Flask
 from flask_restful import Resource,Api
 import pymysql
@@ -7,24 +5,19 @@ import pymysql
 app=Flask(__name__)
 api=Api(app)
 
-class AccountInfo(Resource):
-    def get(self,ano):
+class FilmsSearch(Resource):
+    def get(self,ryear):
         dic={}
         con=pymysql.connect(host='mysql-ethan-python-mysql.h.aivencloud.com',port=10413,user='praffull',password='AVNS_owESNvPFD5fnVDwuWUq',database='sharayudb')
         curs=con.cursor()
-        curs.execute(f"select accnm,balance from accounts where accno={ano}")
-        data=curs.fetchone()
+        curs.execute(f"select * from films where release_year={ryear}")
+        data=curs.fetchall()
         if data:
-            dic['name']=data[0]
-            dic['balance']=data[1]
+            dic['films']=data
         else:
-            dic['name']='not found'
-            dic['balance']=0.0
+            dic['films']='not found'
         con.close()
         return dic
 
-api.add_resource(AccountInfo,'/account/search/<ano>')
+api.add_resource(FilmsSearch,"/films/year/<ryear>")
 app.run(debug=True)
-
-
-
