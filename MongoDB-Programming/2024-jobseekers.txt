@@ -1,0 +1,108 @@
+db.createCollection("job_seekers");
+
+db.job_seekers.insertOne({
+    name: "Alice Smith",
+    age: 28,
+    gender: "Female",
+    qualification: "Bachelor's in Computer Science",
+    experience: 5,
+    email: "alice.smith@example.com",
+    skills: ["Java", "JavaScript", "Python"]
+});
+
+
+db.job_seekers.insertOne({
+    name: "John Doe",
+    age: 32,
+    gender: "Male",
+    qualification: "Master's in Business Administration",
+    experience: 8,
+    email: "john.doe@example.com",
+    skills: ["Management", "Leadership", "Strategic Planning"]
+});
+
+db.job_seekers.insertOne({
+    name: "Emily Brown",
+    age: 25,
+    gender: "Female",
+    qualification: "Bachelor's in Electrical Engineering",
+    experience: 3,
+    email: "emily.brown@example.com",
+    skills: ["C", "C++", "Embedded Systems"]
+});
+
+db.job_seekers.insertOne({
+    name: "Michael Wilson",
+    age: 30,
+    gender: "Male",
+    qualification: "Bachelor's in Marketing",
+    experience: 6,
+    email: "michael.wilson@example.com",
+    skills: ["Digital Marketing", "SEO", "Social Media Marketing"]
+});
+
+db.job_seekers.insertOne({
+    name: "Sophia Lee",
+    age: 27,
+    gender: "Female",
+    qualification: "Master's in Human Resources",
+    experience: 4,
+    email: "sophia.lee@example.com",
+    skills: ["Recruitment", "Employee Relations", "Training & Development"]
+});
+
+
+db.job_seekers.insertOne({
+    name: "Daniel Anderson",
+    age: 35,
+    gender: "Male",
+    qualification: "Bachelor's in Civil Engineering",
+    experience: 10,
+    email: "daniel.anderson@example.com",
+    skills: ["AutoCAD", "Structural Analysis", "Project Management"]
+});
+
+
+db.job_seekers.insertOne({
+    name: "Olivia Taylor",
+    age: 29,
+    gender: "Female",
+    qualification: "Bachelor's in Finance",
+    experience: 7,
+    email: "olivia.taylor@example.com",
+    skills: ["Financial Analysis", "Investment Banking", "Risk Management"]
+});
+
+
+db.job_seekers.insertOne({
+    name: "David Martinez",
+    age: 31,
+    gender: "Male",
+    qualification: "Master's in Computer Science",
+    experience: 6,
+    email: "david.martinez@example.com",
+    skills: ["Software Development", "Database Management", "Web Development"]
+});
+
+db.job_seekers.insertOne({
+    name: "Emma Garcia",
+    age: 26,
+    gender: "Female",
+    qualification: "Bachelor's in Nursing",
+    experience: 3,
+    email: "emma.garcia@example.com",
+    skills: ["Patient Care", "Medical Terminology", "Critical Thinking"]
+});
+
+
+db.job_seekers.insertOne({
+    name: "William Clark",
+    age: 33,
+    gender: "Male",
+    qualification: "Bachelor's in Mechanical Engineering",
+    experience: 8,
+    email: "william.clark@example.com",
+    skills: ["CAD", "Manufacturing Processes", "Product Design"]
+});
+
+

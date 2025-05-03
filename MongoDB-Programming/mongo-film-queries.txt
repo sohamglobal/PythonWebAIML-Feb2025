@@ -1,0 +1,178 @@
+db.createCollection("films")
+
+
+db.films.insertOne( 
+{
+"_id":"151",
+"filmnm":"sholay",
+"category":"action",
+"releaseyr":1975,
+"written":"salim javed",
+"director":"ramesh sippy",
+"actor":"amitabh bachchan",
+"actress":"jaya bhaduri",
+"music":"r d burman",
+"villain":"amjad khan",
+"budgetmn":30,
+"collectionmn":410
+}
+)
+
+
+db.films.insertOne( {
+"_id":"152",
+"filmnm":"pk",
+"category":"comedy",
+"releaseyr":2014,
+"director":"rajkumar hirani",
+"actor":"amir khan",
+"actress":"anushka sharma",
+"budgetmn":850,
+"collectionmn":8540
+}
+)
+
+
+db.films.insertOne( {
+"_id":"153",
+"filmnm":"the matrix",
+"category":"action",
+"releaseyr":1999,
+"director":"wachowski bros",
+"actor":"keanu reeves",
+"actress":"carrie-anne moss",
+"budgetmn":4725,
+"collectionmn":34950
+
+}
+)
+
+db.films.insertOne( {
+"_id":"154",
+"filmnm":"mughal e azam",
+"category":"romance",
+"releaseyr":1960,
+"director":"k asif",
+"actor":"dilip kumar",
+"actress":"madhubala",
+"music":"naushad",
+"budgetmn":15,
+"collectionmn":110
+}
+)
+
+db.films.insertOne( {
+"_id":"155",
+"filmnm":"mi5 rogue nation",
+"category":"action",
+"releaseyr":2015,
+"director":"christopher mcquarrie",
+"actor":"tom cruise",
+"actress":"rebeccca ferguson",
+"budgetmn":11250,
+"collectionmn":51225
+}
+)
+
+db.films.insertOne( {
+"_id":"156",
+"filmnm":"maya",
+"category":"romance",
+"releaseyr":1961,
+"actor":"dev anand",
+"actress":"mala sinha",
+"music":"salil choudhari"
+}
+)
+
+db.films.insertOne( {
+"_id":"157",
+"filmnm":"1942 a love story",
+"category":"romance",
+"releaseyr":1994,
+"director":"vidhu vinod chopra",
+"actor":"anil kapoor",
+"actress":"manisha koirala",
+"music":"r d burman",
+"budgetmn":257,
+"collectionmn":896
+}
+)
+
+
+db.films.insertOne( {
+"_id":"158",
+"filmnm":"chalti ka naam gaadi",
+"category":"comedy",
+"releaseyr":1958,
+"director":"satyen bose",
+"actor":"koshore kumar",
+"actress":"madhubala",
+"music":"s d burman",
+"villain":"k n singh"
+}
+)
+
+db.films.insertOne( {
+"_id":"159",
+"filmnm":"golmaal 3",
+"category":"comedy",
+"releaseyr":2010,
+"director":"rohit shetty",
+"actor":"ajay devgan",
+"actress":"kareena kapoor khan",
+"comedian":"johny lever",
+"budgetmn":350,
+"collectionmn":1692
+}
+)
+
+db.films.insertOne( {
+"_id":"160",
+"filmnm":"bhoot",
+"category":"horror",
+"releaseyr":2003,
+"director":"ram gopal verma",
+"actress":"urmila matondkar",
+"music":"salim sulaiman"
+}
+)
+
+db.films.insertOne( {
+"_id":"161",
+"filmnm":"silsila",
+"category":"romance",
+"releaseyr":1981,
+"director":"yash chopra",
+"actor":"amitabh bachchan",
+"actress":"rekha",
+"music":"shiv hari"
+}
+)
+
+db.films.insertOne( {
+"_id":"162",
+"filmnm":"swades",
+"category":"drama",
+"releaseyr":2004,
+"director":"ashutosh gowarikar",
+"actor":"shah rukh khan",
+"music":"a r rahman",
+"budgetmn":250,
+"collectionmn":380
+}
+)
+
+
+db.films.insertOne( {
+"_id":"163",
+"filmnm":"1917",
+"category":"war",
+"releaseyr":2019,
+"director":"sam mendes",
+"actor":"george mackay",
+"cinematography":"roger deakins",
+"budgetmn":7125,
+"collectionmn":28875
+}
+)

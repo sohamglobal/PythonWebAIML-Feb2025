@@ -1,0 +1,262 @@
+db.createCollection("users")
+
+db.users.insertOne({
+    userid: "jdoe",
+    name: "John Doe",
+    age: 30,
+    gender: "Male",
+    city: "New York",
+    email: "john.doe@example.com",
+    hobbies: ["Reading", "Traveling"]
+});
+
+
+db.users.insertOne({
+    userid: "asmith",
+    name: "Alice Smith",
+    age: 25,
+    gender: "Female",
+    city: "Los Angeles",
+    email: "alice.smith@example.com",
+    hobbies: ["Painting", "Hiking"]
+});
+
+
+db.users.insertOne({
+    userid: "bjohnson",
+    name: "Bob Johnson",
+    age: 35,
+    gender: "Male",
+    city: "Chicago",
+    email: "bob.johnson@example.com",
+    hobbies: ["Cooking", "Gardening"]
+});
+
+
+db.users.insertOne({
+    userid: "ebrown",
+    name: "Emily Brown",
+    age: 28,
+    gender: "Female",
+    city: "Houston",
+    email: "emily.brown@example.com",
+    hobbies: ["Photography", "Dancing"]
+});
+
+
+db.users.insertOne({
+    userid: "mwilson",
+    name: "Michael Wilson",
+    age: 40,
+    gender: "Male",
+    city: "Phoenix",
+    email: "michael.wilson@example.com",
+    hobbies: ["Playing Guitar", "Swimming"]
+});
+
+
+db.users.insertOne({
+    userid: "slee",
+    name: "Sophia Lee",
+    age: 22,
+    gender: "Female",
+    city: "Philadelphia",
+    email: "sophia.lee@example.com",
+    hobbies: ["Yoga", "Reading"]
+});
+
+
+db.users.insertOne({
+    userid: "dmartinez",
+    name: "David Martinez",
+    age: 33,
+    gender: "Male",
+    city: "San Antonio",
+    email: "david.martinez@example.com",
+    hobbies: ["Fishing", "Watching Movies"]
+});
+
+
+db.users.insertOne({
+    userid: "otaylor",
+    name: "Olivia Taylor",
+    age: 27,
+    gender: "Female",
+    city: "San Diego",
+    email: "olivia.taylor@example.com",
+    hobbies: ["Cooking", "Traveling"]
+});
+
+
+db.users.insertOne({
+    userid: "danderson",
+    name: "Daniel Anderson",
+    age: 37,
+    gender: "Male",
+    city: "Dallas",
+    email: "daniel.anderson@example.com",
+    hobbies: ["Playing Soccer", "Photography"]
+});
+
+
+db.users.insertOne({
+    userid: "egarcia",
+    name: "Emma Garcia",
+    age: 29,
+    gender: "Female",
+    city: "Austin",
+    email: "emma.garcia@example.com",
+    hobbies: ["Hiking", "Painting"]
+});
+
+
+db.users.insertOne({
+    userid: "tabu",
+    name: "Tabassum",
+    age: 53,
+    gender: "Female",
+    city: "New York",
+    email: "tabu@example.com",
+    hobbies: ["Acting", "Traveling"]
+});
+
+
+db.users.find({ age: { $eq: 30 } });
+db.users.find({ age: { $ne: 25 } });
+db.users.find({ age: { $gt: 30 } });
+db.users.find({ age: { $gte: 30 } });
+db.users.find({ age: { $lt: 30 } });
+db.users.find({ age: { $lte: 30 } });
+db.users.find({ age: { $in: [25, 30, 35] } });
+db.users.find({ age: { $nin: [25, 30, 35] } });
+
+
+db.users.find({
+    $and: [
+        { gender: "Male" },
+        { city: "New York" }
+    ]
+});
+
+db.users.find({
+    $or: [
+        { gender: "Female" },
+        { city: "Los Angeles" }
+    ]
+});
+
+db.users.find({
+    gender: { $not: { $eq: "Male" } }
+});
+
+
+db.users.find({
+    $nor: [
+        { gender: "Female" },
+        { city: "San Francisco" }
+    ]
+});
+
+
+db.users.find({
+    $or: [
+        { $and: [{ gender: "Female" }, { city: "Los Angeles" }] },
+        { $and: [{ gender: "Male" }, { city: "New York" }] }
+    ]
+});
+
+
+
+
+db.users.updateOne(
+    { name: "John Doe" },
+    { $set: { email: "john.doe@example.com" } }
+);
+
+
+db.users.updateOne(
+    { name: "Alice Smith" },
+    { $set: { email: "alice.smith@example.com", age: 30 } }
+);
+
+db.users.updateMany(
+    {},
+    { $inc: { age: 1 } }
+);
+
+db.users.updateOne(
+    { name: "John Doe" },
+    { $push: { hobbies: "Cooking" } }
+);
+
+db.users.updateOne(
+    { name: "Alice Smith" },
+    { $push: { hobbies: { $each: ["Painting", "Hiking"] } } }
+);
+
+db.users.updateOne(
+    { name: "John Doe" },
+    { $pull: { hobbies: "Reading" } }
+);
+
+db.users.updateOne(
+    { name: "Alice Smith" },
+    { $set: { "address.city": "Los Angeles", "address.state": "California" } }
+);
+
+db.users.updateMany(
+    {},
+    { $rename: { "gender": "sex" } }
+);
+
+
+db.users.updateOne(
+    { name: "Jane Doe" },
+    { $set: { email: "jane.doe@example.com" } },
+    { upsert: true }
+);
+
+
+db.users.updateMany(
+    { age: { $gt: 30 } },
+    { $set: { age: 40 } }
+);
+
+
+
+db.users.deleteOne({ name: "John Doe" });
+
+db.users.deleteMany({ age: { $gt: 40 } });
+
+db.users.deleteMany({});
+
+db.users.deleteMany({ name: "John Doe", age: { $lt: 25 } });
+
+db.users.deleteMany({ name: "John Doe", age: { $lt: 25 } });
+
+db.users.deleteMany({ email: /@example\.com$/ });
+
+db.users.deleteMany({
+    $or: [
+        { gender: "Female" },
+        { city: "New York" }
+    ]
+});
+
+db.users.updateMany(
+    {},
+    { $unset: { address: "" } }
+);
+
+db.users.updateMany(
+    {},
+    { $pull: { hobbies: "Reading" } }
+);
+
+
+db.users.deleteMany({ gender: { $ne: "Male" } });
+
+db.users.deleteMany({ age: { $gte: 20, $lte: 30 } });
+
+
+
