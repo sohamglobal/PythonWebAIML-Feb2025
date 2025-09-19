@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+</head>
+<body>
+  <h3>Simple Calculator</h3>
+  <input id="num1" type="number"> +
+  <input id="num2" type="number">
+  <button onclick="calculate()">=</button>
+  <span id="result"></span>
+
+  <script>
+    function calculate() {
+      let a = parseInt(document.getElementById('num1').value);
+      let b = parseInt(document.getElementById('num2').value);
+      document.getElementById('result').innerHTML = a + b;
+    }
+  </script>
+</body>
+</html>
