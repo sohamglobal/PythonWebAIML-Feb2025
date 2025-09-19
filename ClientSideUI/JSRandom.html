@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Quote</title>
+</head>
+<body>
+  <h2>Quote of the Moment:</h2>
+  <p id="quote"></p>
+  <button onclick="newQuote()">Get New Quote</button>
+
+  <script>
+    let quotes = [
+      "JavaScript makes the web alive!",
+      "Code is like humor. When you have to explain it, it’s bad.",
+      "First, solve the problem. Then, write the code.",
+      "The best error message is the one that never shows up."
+    ];
+
+    function newQuote() {
+      let random = Math.floor(Math.random() * quotes.length);
+      document.getElementById("quote").innerHTML = quotes[random];
+    }
+  </script>
+</body>
+</html>

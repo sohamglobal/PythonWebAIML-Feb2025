@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Slideshow</title>
+</head>
+<body>
+  <h2>Slideshow Demo</h2>
+  <img id="slide" src="https://via.placeholder.com/300x150?text=1" width="300" height="150">
+
+  <script>
+    let images = [
+      "incar.jpg",
+      "incar.jpg",
+      "incar.jpg"
+    ];
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      document.getElementById("slide").src = images[index];
+    }, 2000); // change every 2 sec
+  </script>
+</body>
+</html>
